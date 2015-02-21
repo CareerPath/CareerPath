@@ -13,10 +13,10 @@ a:hover {
 .btn-default,
 .btn-default:hover,
 .btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
+/*  color: #333;
+  text-shadow: none;  Prevent inheritence from `body` 
+  background-color: #fff;*/
+/*  border: 1px solid #fff;*/
 }
 
 
@@ -121,12 +121,16 @@ body {
 
 .cover {
   padding: 100px;
-    box-shadow: inset 0px 20px 100px rgba(0,0,0,.5);
+/*    box-shadow: inset 0px 20px 100px rgba(0,0,0,.5);*/
 }
 .cover .btn-lg {
   padding: 10px 20px;
   font-weight: bold;
 
+}
+
+.file-preview-frame{
+  background-color: white;
 }
 
 

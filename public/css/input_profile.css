@@ -23,7 +23,7 @@ input[readonly] {
 
 
 .upload-resume{
-  width:50%;
+
   float:none;
   position: relative;
   min-height: 1px;
@@ -34,4 +34,23 @@ input[readonly] {
 
 .help-block{
   color:white;
+}
+
+.file-preview-frame{
+  /*background-color: white;*/
+  float:none;
+  text-align: center;
+}
+
+.file-preview{
+  width:300px;
+  margin: auto;
+  border-width: 0px;
+  padding:0px;
+
+}
+
+.input-group{
+  width: 70%;
+  margin: auto;
 }
