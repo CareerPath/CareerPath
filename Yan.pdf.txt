@@ -1,0 +1,42 @@
+Yan Zhao
+5636 Forbes Avenue, Pittsburgh, PA 15217
+(412)897-6929, dongnanzhy@gmail.com
+OBJECTIVE Summer internship as software engineer
+EDUCATION Carnegie Mellon University, School of Computer Science May. 2016
+• Master of Science in LTI, BIC GPA 3.83
+Southeast University, School of Biomedical Engineering Jul. 2011
+• Bachelor of Engineering in Biomedical Engineering
+Coursework Machine Learning in Practice(A+), Algorithm and Advanced Data Structure(B+),
+Design and Engineering of Intelligent Information Systems(A), Introduction to Ma-
+chine Learning, Machine Learning in Signal Processing, Big Data System
+SKILLS Programming Languages: JAVA, C++, Matlab, C, Latex, Assembly language
+Other skills: Machine Learning, Linux
+ACADEMIC
+PROJECT
+CMU Lib Sep. 2014 -
+• Next generation distributed system, implemented with machine learning meth-
+ods like SVD. To analyze big data and make predictions fast and accurately.
+Biomedical Question Answering System (video) Oct. 2014 - Dec. 2014
+• A QA system focused on factoid question using UIMA structure, extract an-
+swers based on different corpus and do error analysis.
+NBA Game Results Description Sep. 2014 - Dec.2014
+• Construct and analyze data about NBA matches and use Weka to make pre-
+dictions on whether a team would enter playoffs and get champions, various
+machine learning algorithms are analyzed including SVM, Naive Bayes and so
+on.
+Technology of Ultrasound Image Denoising Jun. 2010 - Jun. 2011
+• Programmed with both C++ and Matlab languages to achieve several methods
+of ultrasound image denoising, including wavelet and smoothing.
+The multi-planar reconstruction of CT images Jun. 2009 - Jan. 2011
+• Accomplished the MPR of 300 CT images using MFC based on DICOM deal.
+Realized the display of three planes at any position in the same window to help
+with the accurate diagnosis.
+WORKING
+EXPERIENCES
+Research Assistant in State Key Laboratory of Bioelectronics, Southeast
+University, China Aug. 2011 - Sep. 2013
+• Managed daily affairs and helped with biological experiments.
+• Created lab website. Made web pages, embedded laboratory personnel data,
+and helped to implement an appointment system.
+CERTIFICATES • National Intermediate Engineer Qualification for Computer and Soft-
+ware Technology Proficient in C/C++ Language

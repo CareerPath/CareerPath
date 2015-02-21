@@ -1,0 +1,57 @@
+
+android
+b.a
+b.s
+ba
+bachelor's
+bachelor's degree
+bachelors
+bachelors degree
+bs
+c
+c++
+c/c++
+css
+cvs
+db2
+eclipse
+eclipse
+git
+hibernate
+html
+html
+j2ee
+java
+javascript
+jboss
+jdbc
+jsp
+linux
+mac osx
+machine learning
+masters
+matlab
+ms
+mvc
+object oriented design
+object oriented programming
+openmp
+oracle
+perl
+phd
+python
+rdbms
+ruby
+ruby on rails
+scheme
+source control systems
+spring
+sql
+struts
+sybase
+unix
+web services
+web technologies
+weblogic
+websphere
+xml

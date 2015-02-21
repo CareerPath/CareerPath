@@ -1,0 +1,39 @@
+Meaningful Sentences:
+=====================
+Education equivalent to a Bachelors degree in computer science
+a related field and a minimum of 5-7 years experience, 3 of those years should
+recent experience with J2EE application servers (i.e
+WebSphere, WebLogic, JBoss
+Extensive experience in J2EE frameworks
+Struts, Spring, Hibernate, Web Services and JDBC
+JSP, HTML, CSS and XML
+Experience with Eclipse based IDE's and source control systems
+Experience in RDBMS (DB2/Oracle/Sybase) design and SQL is required
+object oriented design patterns
+
+
+Hot Keywords:
+=============
+bachelors
+bachelors degree
+css
+cvs
+eclipse
+hibernate
+html
+j2ee
+jboss
+jdbc
+jsp
+mvc
+object oriented design
+rdbms
+source control systems
+spring
+sql
+struts
+web services
+web technologies
+weblogic
+websphere
+xml

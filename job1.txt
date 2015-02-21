@@ -1,0 +1,33 @@
+Key Qualifications
+
+Proficiency in one or more programming languages such as C, C++, or Objective-C
+Experience with scripting languages such as Python, Perl, or Ruby
+Experience with web development technologies including PHP, HTML, CSS, or JavaScript
+Experience with UNIX and/or OS X preferred
+For graphics-related roles, experience with OpenGL and OpenCL
+Strong analytical and problem solving skills
+Excellent written and verbal communication skills
+
+Description
+
+Areas you can work in:  
+Core OS  
+OS X Frameworks and Applications 
+Interactive Media Group 
+Audio/Video 
+Development Technologies 
+Software Integration 
+Localization 
+Advanced Computation 
+iLife, iWork, Aperture, and Pro Apps 
+Embedded Platform 
+iPhone Applications and Frameworks 
+Human Interface Design 
+Internet Technologies 
+Platform Experience  
+Wireless Technologies 
+Internet Software and Services
+
+Education
+
+Currently enrolled in a BS, MS or PhD program in Computer Science, Computer Engineering, HCI/UI, Software Engineering, Electrical and Computer Engineering, or similar degree

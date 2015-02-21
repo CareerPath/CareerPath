@@ -1,0 +1,32 @@
+Meaningful Sentences:
+=====================
+• Master of Science in LTI, BIC GPA 3.83
+• Bachelor of Engineering in Biomedical Engineering
+Coursework Machine Learning in Practice(A+), Algorithm and Advanced Data Structure(B
+SKILLS Programming Languages: JAVA, C++, Matlab, C, Latex, Assembly language
+Other skills: Machine Learning, Linux
+• Next generation distributed system, implemented with machine learning meth
+2014 - Dec
+• A QA system focused on factoid question using UIMA structure, extract an
+2014 - Dec.2014
+• Construct and analyze data about NBA matches and use Weka to make pre
+2010 - Jun
+• Programmed with both C++ and Matlab languages to achieve several methods
+2009 - Jan
+• Accomplished the MPR of 300 CT images using MFC based on DICOM deal
+2011 - Sep
+• Managed daily affairs and helped with biological experiments
+• Created lab website
+and helped to implement an appointment system
+CERTIFICATES • National Intermediate Engineer Qualification for Computer and Soft
+ware Technology Proficient in C/C++ Language
+
+
+Hot Keywords:
+=============
+
+c
+java
+linux
+machine learning
+matlab
