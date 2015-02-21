@@ -37,7 +37,7 @@ var router = {
     	        results = JSON.parse(results);
     	        linkedin = Linkedin.init(results.access_token);
     	        
-    	        return res.redirect('/search');
+    	        return res.redirect('/');
     	    });
     	});
     	app.get('/search', function (req, res) {
@@ -48,26 +48,58 @@ var router = {
     				res.send({err:err});
     			} else {
     				var connections = [];
-    				var count = 0;
-    				async.map(data.connections.values, function (connection, cb) {
-    					if (count > 2) return cb(null, {});
-    					count++;
+    				var count=0;
+    				res.end("Started");
+    				var limit = req.query.limit||20;
+    				async.mapSeries(data.connections.values, function (connection, cb) {
+    					if (count++ > limit) return cb(null, {});
+    					console.log(count);
     					linkedin.people.id(connection.id,fields,function (err, data) {
-    						var positions = [];
-    						if (data.positions && data.positions._total > 0) {
-    							data.positions = data.positions.values[0].title;
+    						if (err) return console.log("ERROR:" + err);
+    						if (!data['publicProfileUrl']){
+    							console.log(data);
+    							return cb(null, {});
     						}
-    						cb(err, data);
+    						setTimeout(function() {
+    							var exec = require('child_process').exec,
+    						    child;
+    							child = exec('linkedin-scraper '+data['publicProfileUrl'],
+    							  function (error, stdout, stderr) {
+    							    console.log('stderr: ' + stderr);
+    							    if (stderr) return cb(null,{});
+    							    var data = JSON.parse(stdout);
+    							    if (data.title)
+    							    	data.title = data.title.replace(/,/g, '.');
+    							    if (data.summary)
+    							    	data.summary = data.summary.replace(/,/g, '.')
+    							    if (data.education) {
+    							    	var education = '';
+	    							    data.education.forEach(function (school) {
+	    							    	education += "|" + school.name.replace(/,/g, '.');
+	    							    })
+	    							    data.education = education;
+    							    }
+    							    if (data.skills) {
+    							    	var skills = '';
+    							    	data.skills.forEach(function (skill) {
+    							    		skills += "|" + skill.replace(/,/g, '.');
+    							    	})
+    							    	data.skills = skills;
+    							    }
+    							    
+    							    cb(null, data);
+    							    if (error !== null) {
+    							      console.log('exec error: ' + error);
+    							    }
+    							});
+    						}, 15000+Math.random()* 15000);
+    						
     					});
     				}, function (err, connections) {
-    					json2csv({data: connections, fields: ['id','headline','positions','skills','specialties','interests','educations']}, function(err, csv) {
-						  if (err) console.log(err);
-						  res.send({csv:csv});
-						  fs.writeFile('result.csv', csv, function(err) {
+    					fs.writeFile('result.json', JSON.stringify(connections), function(err) {
 						    if (err) throw err;
 						    console.log('file saved');
 						  });
-						});
     				});
     				
     			}
