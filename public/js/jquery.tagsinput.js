@@ -54,7 +54,7 @@
             position: 'absolute',
             top: -9999,
             left: -9999,
-            width: 'auto',
+            width: '300px',
             fontSize: input.css('fontSize'),
             fontFamily: input.css('fontFamily'),
             fontWeight: input.css('fontWeight'),
@@ -177,9 +177,9 @@
 	$.fn.tagsInput = function(options) { 
     var settings = jQuery.extend({
       interactive:true,
-      defaultText:'add a tag',
+      defaultText:'At least 3',
       minChars:0,
-      width:'300px',
+      width:'40px',
       height:'100px',
       autocomplete: {selectFirst: false },
       'hide':true,
@@ -187,7 +187,7 @@
       'unique':true,
       removeWithBackspace:true,
       placeholderColor:'#666666',
-      autosize: true,
+      autosize: false,
       comfortZone: 20,
       inputPadding: 6*2
     },options);
@@ -228,9 +228,9 @@
 			
 			$(markup).insertAfter(this);
 
-			$(data.holder).css('width',settings.width);
-			$(data.holder).css('min-height',settings.height);
-			$(data.holder).css('height','100%');
+			// $(data.holder).css('width',settings.width);
+			// $(data.holder).css('min-height',settings.height);
+			// $(data.holder).css('height','100%');
 	
 			if ($(data.real_input).val()!='') { 
 				$.fn.tagsInput.importTags($(data.real_input),$(data.real_input).val());
