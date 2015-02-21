@@ -57,8 +57,13 @@ body {
 /* Padding for spacing */
 .inner {
   padding: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
+.col-lg-2{
+  width: 19%;
+}
 
 /*
  * Header
@@ -138,6 +143,9 @@ body {
   .masthead {
     position: fixed;
     top: 0;
+    box-shadow: inset 0px 0 100px rgba(0,0,0,.5);
+    z-index:999;
+    height:100px;
   }
   .mastfoot {
     position: fixed;
@@ -159,6 +167,7 @@ body {
   .masthead,
   .mastfoot,
   .cover-container {
-    width: 700px;
+    width: 100%;
+
   }
 }
