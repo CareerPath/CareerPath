@@ -19,6 +19,18 @@ var fields = ['id', 'first-name', 'last-name', 'maiden-name',
             'network', 'public-profile-url','api-standard-profile-request'];
 var router = {
     setup :function(app){
+        app.post('/upload', function (req, res) {
+            var fstream;
+            req.pipe(req.busboy);
+            req.busboy.on('file', function (fieldname, file, filename) {
+                console.log("Uploading: " + filename); 
+                fstream = fs.createWriteStream('/tmp/' + filename);
+                file.pipe(fstream);
+                fstream.on('close', function () {
+                    res.send({msg:"success"});
+                });
+            });
+        });
     	app.get('/oauth/linkedin', function(req, res) {
     	    // This will ask for permisssions etc and redirect to callback url. 
     	    // var params = {

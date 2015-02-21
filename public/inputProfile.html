@@ -93,7 +93,8 @@
     <script>
         $("#file-0").fileinput({
         
-                    // uploadUrl: '#', // you must set a valid URL here else you will get an error
+         uploadUrl: '/upload', // you must set a valid URL here else you will get an error
+         uploadAsync: true,
         allowedFileExtensions : [ 'pdf'],
         // overwriteInitial: false,
         // maxFileSize: 1000,
