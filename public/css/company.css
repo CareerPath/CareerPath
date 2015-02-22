@@ -5,11 +5,12 @@
 	width:auto;
 	background: white;
 	overflow:hidden;
-	text-align:center;
+/*	text-align:center;*/
 	box-shadow: 0 1px 2px rgba(0,0,0,0.25);
 	webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.25);
 	font-size:12px;
 	line-height:12px;
+	min-width: 50%;
 }
 
 
@@ -17,6 +18,7 @@
 	float:left;
 	width: 20%;
 	padding:0;
+	text-align:center;
 }
 
 .company .leftImage .companyLogo{
@@ -40,7 +42,7 @@
 	font-size:18px;
 	line-height:24px;
 	padding-bottom:5px;
-	margin-bottom:5px;
+/*	margin-bottom:5px;*/
 	min-height:32px;
 }
 
@@ -91,7 +93,7 @@
 }
 
 
-.company .companyInfo .action{
+.company .action{
 	width:49%;
 	margin-left:1%;
 	font-size:10px;
@@ -369,3 +371,7 @@
 	width:310px;
 }
 
+.panel{
+	text-shadow:none;
+	margin-bottom: 5px;
+}
