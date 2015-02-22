@@ -10,7 +10,12 @@ router.get('/input-profile', function(req, res, next) {
 });
 
 router.get('/career-match', function(req, res, next) {
-  res.render('career-match', {me:req.session.me});
+	if (!req.session.me) {
+		res.redirect('input-profile');
+	} else {
+		console.log(req.session.me);
+		res.render('career-match', {me:req.session.me});
+	}
 });
 
 module.exports = router;
