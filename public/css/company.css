@@ -73,11 +73,11 @@
 
 .company .companyInfo .positionTitle{
 	font-weight:bold;
-	font-size:12px;
+	font-size:14px;
 	line-height:12px;
 }
 .company .companyInfo .companyDescription{
-	font-size:12px;
+	font-size:14px;
 	line-height:1.1em;
 }
 
@@ -97,7 +97,7 @@
 .company .action{
 	width:49%;
 	margin-left:1%;
-	font-size:10px;
+	font-size:14px;
 	border:1px solid rgba(0,0,0,0.2);
 	border-radius:2px;
 	text-align:center;
