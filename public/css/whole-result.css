@@ -10,6 +10,12 @@
 .pro-icon{
 	max-height: 20%;
 	max-width: 20%;
+
+}
+
+.pro-icon img{
+
+	width:200px;
 }
 
 body{
@@ -73,14 +79,25 @@ padding-bottom: 1px;
 
 }
 
-.col-xs-12.col-sm-8{
+.col-xs-12.col-sm-6{
 	margin-top:-20px;
 }
 
+.col-xs-12.col-sm-3{
+	float:left;
+	height:100%;
+	
+}
 
+.col-xs-12.col-sm-3 span{
+	float:right;
+	height:100%;
+	margin: 5px;
 
+}
 .job-detail{
-
+	display: none;
+	padding : 10px 10px 0 10px;
 }
 
 .skill-course{
@@ -111,4 +128,30 @@ padding-bottom: 1px;
 .list-group{
 	font-size: 12px;
 	line-height: 12px;
+}
+
+.article{
+	float: left;
+		width: 98%;
+	height: 100%;
+/*	margin-left: 10px;
+	margin-right:10px;*/
+	margin : 10px 10px;
+}
+
+.oppo{
+	float: left;
+	width: 98%;
+	height: 100%;
+/*	margin-left: 10px;
+	margin-right:10px;*/
+	margin : 10px 10px 0 10px;
+}
+
+.fold-up{
+	float:right;
+	width:12.5%; 
+	margin: 10px 20px 10px 10px; 
+	line-height: 24px; 
+	height:24px;
 }
