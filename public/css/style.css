@@ -1,0 +1,842 @@
+/* ===================== REPORTS ================== */
+
+/* ==== a lot of this is overwriting previous stupid css from superfriendly ==== */
+.site-wrapper{
+	background-color: #333;
+	background-image: none;
+}
+
+.ng-binding{
+	font-family: "Open Sans", sans-serif; 
+	color: #333; 
+	text-shadow: 0 1px 3px white;
+}
+
+.action{
+		font-family: "Open Sans", sans-serif; 
+	color: #333; 
+	text-shadow: 0 1px 3px white;
+}
+
+.report{
+	position:relative;
+	margin:0 0 50px 0;
+	min-height:400px;
+	top:50px;
+}
+.report *{
+	-moz-transition: none;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+}
+.report a{
+	color: #666;
+	text-decoration: none;
+	padding: 0;
+	background:none;
+	border-bottom: none;
+}
+.report a:hover{
+	color: #222;
+}
+.report-header{
+	color: #265498;
+	height:50px;
+	text-align:center;
+	font-size:30px;
+	font-weight:bold;
+	line-height:50px;
+}
+/* =========================================*/
+
+
+/* ================ REPORT SIDEBAR ============= */
+.report .sidebar{
+	width:200px;
+	min-height:500px;
+	float:left;
+}
+
+.report .sideBox{
+	/*width:200px;*/
+	width:100%;
+	margin: 15px 0 0 0;
+	background: white;
+	float:left;
+	overflow: hidden;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+	webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+	font-size: 14px;
+	line-height: 14px;
+}
+
+.report .sideBox li{
+	background-image:none;
+	padding-left:15px;
+	color:#265498;
+	min-height:40px;
+	font-size:11px;
+	font-weight:bold;
+	line-height:40px;
+	margin:0;
+	border-bottom: 1px solid rgba(0,0,0,0.15);
+
+	-webkit-transition: background-color 0.25s linear;
+    -moz-transition: background-color 0.25s linear;
+    -o-transition: background-color 0.25s linear;
+    -ms-transition: background-color 0.25s linear;
+    transition: background-color 0.25s linear;
+}
+
+.report .sideBox li.active{
+	background-color:rgba(38,84,152,0.25);
+}
+
+.report .sideBox .category:last-child  li:last-child{
+	border-bottom: none;
+}
+
+.report .sideBox ul{
+	margin-bottom:0;
+}
+
+.report .sideBox li.sub{
+	font-size:10px;
+	padding-left:30px;
+	font-weight:normal;
+}
+
+.report .sideBox li:hover{
+	cursor:pointer;
+	background-color:rgba(38,84,152,0.25);
+
+	-webkit-transition: background-color 0.05s linear;
+    -moz-transition: background-color 0.05s linear;
+    -o-transition: background-color 0.05s linear;
+    -ms-transition: background-color 0.05s linear;
+    transition: background-color 0.05s linear;
+}
+
+span.match{
+	color:white;
+	background:rgba(0,155,0,0.75);
+	position:relative;
+	font-size:0.8em;
+	bottom:0.1em;
+	padding:0.2em 0.5em;
+	border-radius:3px;
+	margin-left:1em;
+}
+/* =========================================*/
+
+
+/* ===================== TOP BAR ================== */
+.report .topBar{
+	height:50px;
+	line-height:50px;
+	border-radius: 2px;
+	left:0;
+	right:0;
+	background-color:#265498;
+}
+
+.report .reportNav{
+	float:left;
+	font-size:12px;
+	line-height:15px;
+	height:50px;
+	text-align:center;
+	font-weight:lighter;
+	color:white;
+	min-width:100px;
+	padding:10px;
+	/*border-right:1px solid rgba(0,0,0,0.05);*/
+}
+
+.report .reportNav i{
+	line-height:15px;
+}
+
+.report .reportNav:hover, .report .reportNav.active{
+	background-color:rgba(0,0,0,0.25);
+	cursor:pointer;
+}
+
+.report .reportNav.disabled{
+	pointer-events:none;
+	opacity:0.25;
+}
+
+
+.report .reportTitle{
+	width:200px;
+	/*border-right: 1px solid rgba(0,0,0,0.25);*/
+	font-size:20px;
+	font-weight:bold;
+	text-align:center;
+	float:left;
+	color: white;
+}
+
+.topBar .complete{
+	float:right;
+	font-weight:lighter;
+	font-size:10px;
+	margin-right:20px;
+	color:rgba(255,255,255,0.75);
+}
+
+.topBar .complete:hover{
+	color:#fff;
+	cursor:pointer;
+}
+
+@media (max-width: 1000px){
+	.topBar .complete{
+		display:none;
+	}
+}
+
+/* =========================================*/
+
+
+
+
+/* ================= MAIN REPORTS SECTION ============== */
+
+.report .individualReports{
+	padding-top:0;
+	margin-left:10%;
+	margin-right:10%;
+	padding-bottom: 10px;
+	min-height:500px;
+	margin-top: 65px;
+}
+
+.report .main .traitBox{
+	margin: 15px;
+	background: white;
+	overflow:hidden;
+	padding: 10px;
+	text-align:center;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+	webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+
+	font-size:14px;
+	line-height:14px;
+}
+
+.report .contentTitle{
+	text-align: center;
+/*	padding: 15px 0 5px;*/
+	font-size: 24px;
+	line-height:24px;
+	font-weight: bold;
+	color: white;
+	text-shadow: -1px -1px rgba(255,255,255, 0.2);
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	-ms-text-rendering: optimizeLegibility;
+	-o-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
+}
+
+.report .contentSubTitle{
+	text-align: center;
+	padding: 10px 0 0;
+	font-size: 18px;
+	line-height:18px;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 0.3);
+	text-shadow: -1px -1px rgba(255,255,255, 0.2);
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	-ms-text-rendering: optimizeLegibility;
+	-o-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
+}
+
+/* normalizing for previous css */
+.report .contentTitle a,
+.report .contentSubTitle a{
+	color: #265498;
+}
+.report .contentTitle a:hover,
+.report .contentSubTitle a:hover{
+	color: #003584;
+}
+
+/* for fullpage layout */
+.report .main.fullPage{
+	left:0;
+}
+.report .main.fullPage .individualReports{
+	margin-left:0;
+	border-left:none;
+}
+/* =========================================*/
+
+
+
+/* ===================== SLIDER ================== */
+.slider{
+	overflow:hidden;
+}
+
+.slider .sliderTitle{
+	overflow:hidden;
+	line-height:16px;
+}
+
+
+.traitBox .sliderTitle label{
+	text-align:center;
+	margin-top:0;
+	margin-bottom:10px;
+	font-size:16px;
+	cursor:pointer;
+	display:inline;
+	color:#265498;
+}
+.slider .sliderTitle i{
+	margin-left:5px;
+	cursor:pointer;
+	color:#265498;
+	opacity:0.5;
+	padding-right:2px;
+}
+.slider .sliderTitle i:hover{
+	opacity:0.75;
+}
+
+
+.slider .left{
+	float:left;
+	width:25%;
+	margin-right:5%;
+}
+.slider .middle{
+	float:left;
+	width:40%;
+}
+.slider .right{
+	float:left;
+	width:25%;
+	margin-left:5%;
+}
+
+.description{
+	width:100%;
+	line-height:1em;
+	
+}
+.description hr{
+	margin: 5px 0;
+	border-color:rgba(102, 132, 207, 0.25);
+}
+
+.slider h2{
+	font-size:20px;
+	line-height:20px;
+	font-weight:bold;
+}
+
+/* css for collapsability */
+.slider input{
+  display:none;
+}
+.slider input ~ .description{
+ height:0;
+ opacity:0;
+}
+.slider input:checked ~ .description{
+display:inline-block;
+ height:auto;
+  opacity:1;
+  	-webkit-transition: opacity 1s ease;
+	-moz-transition:    opacity 1s ease;
+	-o-transition:      opacity 1s ease;
+}
+/* =========================================*/
+
+/* ============== CAREER FIT CSS ==============*/
+.industry_feedback{
+	width:100%;
+	padding:10px 3%;
+	font-weight: lighter;
+	overflow:hidden;
+}
+
+.industry_fit{
+	overflow:hidden;
+	float:left;
+	margin:0 5px;
+}
+div#fit-score{
+	width:400px;
+}
+
+.topFit .industry_fit{
+	width:45%;
+	float:left;
+}
+.topFit .description{
+	width:45%;
+	float:right;
+}
+.topFit a.contentSubTitle{
+	color: #265498;
+}
+
+.topFit a.contentSubTitle:hover{
+	color: #003584;
+}
+
+.industry_feedback.align{
+	text-align:left;
+}
+.industry_feedback.align i{
+	margin-right:10px;
+}
+@media (max-width:500px){
+	.industry_fit{
+		width:100%;
+	}
+	div#fit-score{
+		width:100%;
+	}
+	.topFit .industry_fit{
+		width:100%;
+		float:none;
+	}
+	.topFit .description{
+		width:100%;
+		float:none;
+	}
+}
+/* =========================================*/
+
+/* ============== TOOLTIP CSS ==============*/
+
+.tooltip,[data-tooltip]{position:relative;cursor:pointer}.tooltip:after,.tooltip:before,[data-tooltip]:after,[data-tooltip]:before{position:absolute;visibility:hidden;-ms-filter:"alpha(Opacity=0)";filter:alpha(Opacity=0);opacity:0;-webkit-transition:opacity .2s ease-in-out,visibility .2s ease-in-out,-webkit-transform .2s cubic-bezier(0.71,1.7,.77,1.24);-moz-transition:opacity .2s ease-in-out,visibility .2s ease-in-out,-moz-transform .2s cubic-bezier(0.71,1.7,.77,1.24);transition:opacity .2s ease-in-out,visibility .2s ease-in-out,transform .2s cubic-bezier(0.71,1.7,.77,1.24);-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);transform:translate3d(0,0,0);pointer-events:none}.tooltip:focus:after,.tooltip:focus:before,.tooltip:hover:after,.tooltip:hover:before,[data-tooltip]:focus:after,[data-tooltip]:focus:before,[data-tooltip]:hover:after,[data-tooltip]:hover:before{visibility:visible;-ms-filter:"alpha(Opacity=100)";filter:alpha(Opacity=100);opacity:1}.tooltip:before,[data-tooltip]:before{z-index:1001;border:6px solid transparent;background:0 0;content:""}.tooltip:after,[data-tooltip]:after{z-index:1000;padding:5px;width:170px;background-color:#000;background-color:hsla(0,0%,20%,.9);color:#fff;content:attr(data-tooltip);font-size:10px;border-radius:2px;line-height:1.1em}.tooltip-top:after,.tooltip-top:before,.tooltip:after,.tooltip:before,[data-tooltip]:after,[data-tooltip]:before{bottom:100%;left:50%}.tooltip-top:before,.tooltip:before,[data-tooltip]:before{margin-left:-6px;margin-bottom:-12px;border-top-color:#000;border-top-color:hsla(0,0%,20%,.9)}.tooltip-top:after,.tooltip:after,[data-tooltip]:after{margin-left:-80px}.tooltip-top:focus:after,.tooltip-top:focus:before,.tooltip-top:hover:after,.tooltip-top:hover:before,.tooltip:focus:after,.tooltip:focus:before,.tooltip:hover:after,.tooltip:hover:before,[data-tooltip]:focus:after,[data-tooltip]:focus:before,[data-tooltip]:hover:after,[data-tooltip]:hover:before{-webkit-transform:translateY(-12px);-moz-transform:translateY(-12px);transform:translateY(-12px)}.tooltip-left:after,.tooltip-left:before{right:100%;bottom:50%;left:auto}.tooltip-left:before{margin-left:0;margin-right:-12px;margin-bottom:0;border-top-color:transparent;border-left-color:#000;border-left-color:hsla(0,0%,20%,.9)}.tooltip-left:focus:after,.tooltip-left:focus:before,.tooltip-left:hover:after,.tooltip-left:hover:before{-webkit-transform:translateX(-12px);-moz-transform:translateX(-12px);transform:translateX(-12px)}.tooltip-bottom:after,.tooltip-bottom:before{top:100%;bottom:auto;left:50%}.tooltip-bottom:before{margin-top:-12px;margin-bottom:0;border-top-color:transparent;border-bottom-color:#000;border-bottom-color:hsla(0,0%,20%,.9)}.tooltip-bottom:focus:after,.tooltip-bottom:focus:before,.tooltip-bottom:hover:after,.tooltip-bottom:hover:before{-webkit-transform:translateY(12px);-moz-transform:translateY(12px);transform:translateY(12px)}.tooltip-right:after,.tooltip-right:before{bottom:80%;left:100%}.tooltip-right:before{margin-bottom:0;margin-left:-10px;border-top-color:transparent;border-right-color:#000;border-right-color:hsla(0,0%,20%,.9)}.tooltip-right:focus:after,.tooltip-right:focus:before,.tooltip-right:hover:after,.tooltip-right:hover:before{-webkit-transform:translateX(12px);-moz-transform:translateX(12px);transform:translateX(12px)}.tooltip-left:before,.tooltip-right:before{top:3px}.tooltip-left:after,.tooltip-right:after{margin-left:0;margin-bottom:-16px}
+/* =========================================*/
+
+/* ====RESPONSIVENESS==== */
+@media (max-width:800px){
+	.slider .description{
+		width:90%;
+	}
+	.report .individualReports{
+		margin-left:0;
+		border-left:none;
+		margin-left:10%;
+		margin-right:10%;
+
+	}
+	.slider label,
+	.slider .description{
+		font-size:12px;
+		line-height:12px;
+	}
+
+	.slider .left,
+	.slider .right {
+		font-size: 10px;
+		line-height:10px;
+	}
+	.report .topBar .reportTitle {
+		font-size:12px;
+		width:auto;
+		padding:0 5px;
+	}
+	.report .topBar {
+		height:auto;
+		overflow:hidden;
+		width:90%;
+		margin:0 5%;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	.report .sidebar{
+		border-radius: 2px;
+		margin:0 5%;
+		width:90%;
+	}
+
+	.report .sidebar .sideBox{
+		margin:0;
+	}
+
+	.report .sideBox li{
+		float:left;
+		padding:5px;
+		font-size:10px;
+		height:auto;
+		min-height:0;
+		line-height:normal;
+		box-shadow:none;
+		border:1px solid rgba(0,0,0,0.05);
+	}
+	.report .sideBox li.sub {
+		padding:5px;
+	}
+	.report .reportTitle{
+		border-right:none;
+	}
+
+	.report .miniBox{
+		display:none;
+	}
+
+	.report .sidebar{
+		min-height:0;
+	}
+	.boxLink{
+		float:none !important;
+		width:300px !important;
+		margin:5px auto !important;
+	}
+}
+/* =========================================*/
+
+
+/* ============ animation for transition ==============*/
+/* man view coming in and out */
+.main [ui-view].ng-enter, .main [ui-view].ng-leave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition:all .35s ease-in-out;
+    -moz-transition:all .35s ease-in-out;
+    -o-transition:all .35s ease-in-out;
+    transition:all .35s ease-in-out;
+}
+
+.main [ui-view].ng-enter {
+  opacity: 0;
+  -webkit-transform:scale3d(0.5, 0.5, 0.5);
+  -moz-transform:scale3d(0.5, 0.5, 0.5);
+  transform:scale3d(0.5, 0.5, 0.5);
+}
+
+.main [ui-view].ng-enter-active {
+  opacity: 1;
+  -webkit-transform:scale3d(1, 1, 1);
+  -moz-transform:scale3d(1, 1, 1);
+  transform:scale3d(1, 1, 1);
+}
+
+.main [ui-view].ng-leave {
+  opacity: 1; 
+  -webkit-transform:translate3d(0, 0, 0);
+  -moz-transform:translate3d(0, 0, 0);
+  transform:translate3d(0, 0, 0);
+}
+
+.main [ui-view].ng-leave-active {
+  opacity: 0;
+  -webkit-transform:translate3d(100px, 0, 0);
+  -moz-transform:translate3d(100px, 0, 0);
+  transform:translate3d(100px, 0, 0);
+}
+/* main view coming in and out */
+
+/* trait report description */
+.traitBox .description{
+	-webkit-transition:all linear 0.5s;
+	-moz-transition:all linear 0.5s;
+	-o-transition:all linear 0.5s;
+	transition:all linear 0.5s;
+}
+
+.traitBox .description.ng-hide{
+	opacity:0;
+}
+/* trait report description */
+
+/* =========================================*/
+
+
+
+/* ============ progress bars ==============*/
+/* radial progress bar for careers */
+.progress-bar-content{
+  height:100px;
+  width:100px;
+  position:relative;
+  margin:5px auto;
+}
+.progress-bar{
+  height:100px;
+  width:100px;
+  background-color: white;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+.progress-bar-image img{
+  max-height:50px;
+  max-width:50px;
+  position:absolute;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  margin:auto;
+}
+
+/* radial progress bar for careers */
+
+
+/* linear progress bar for traits */
+.linear-progress {
+	border-radius: 2px;	
+	overflow: visible;
+	height:20px;	
+	width:100%;
+}
+.linear-progress div {
+	overflow:visible !important;
+	width:50%;
+	height:6px;
+	margin:7px 0;
+	font-size:12px;
+}
+
+.linear-progress hr{
+	position:relative;
+	top:10.5px;
+}
+
+.linear-progress span.knob{
+	height:12px;
+	width:12px;
+	border:1px solid #265498;
+	border-radius:6px;
+	position:relative;
+	left:6px;
+	bottom:3px;
+	background:#397fe5;
+	float:right;
+}
+
+/* linear progress bar for traits */
+/* ============ progress bars ==============*/
+
+/* =========== company report ==============*/
+.text-primary {
+	color: #265498;
+}
+.text-center {
+	text-align: center;
+}
+.text-left {
+	text-align: left;
+}
+.text-right {
+	text-align: right;
+}
+.pull-left {
+	float: left;
+}
+.pull-right {
+	float: right;
+}
+.btn-report {
+	display: inline-block;
+	margin-bottom: 0;
+	font-weight: 400;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	background-image: none;
+	border: 1px solid transparent;
+	white-space: nowrap;
+	padding: 6px 12px !important;
+	font-size: 14px;
+	line-height: 1.42857143;
+	border-radius: 2px;
+	-webkit-user-select: none;
+}
+.btn-report .btn-default {
+	color: #265498;
+	background-color: #fff;
+	border: 1px solid #ccc !important;
+}
+.btn-report .btn-default:hover,
+.btn-report .btn-default:active,
+.btn-report .btn-default:focus {
+	background-color: #eee;
+}
+.btn-report .btn-primary {
+	color: #fff;
+	background-color: #265498;
+	border-color: #214984;
+}
+.btn-report .btn-primary:hover,
+.btn-report .btn-primary:active,
+.btn-report .btn-primary:hover {
+	background-color: #214984;
+}
+.btn-report .btn-info {
+	color: #fff;
+	background-color: #397fe5;
+	border-color: #2270e2;
+}
+.btn-report .btn-info:hover,
+.btn-report .btn-info:active,
+.btn-report .btn-info:hover {
+	background-color: #2270e2;
+}
+.btn-report .btn-block {
+	display: block;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+.email-lock {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	min-width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.70);
+	text-align: center;
+}
+.email-lock .prompt {
+	width: 480px;
+	height: 240px;
+	background-color: white;
+	border-radius: 3px;
+	border-color: whitesmoke;
+	margin: auto;
+	padding: 10px;
+}
+.vertical-center {
+	position: relative;
+  	top: 50%;
+  	-webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+.blur {
+	-webkit-filter: blur(5px);
+	   -moz-filter: blur(5px);
+  	    -ms-filter: blur(5px);
+	     -o-filter: blur(5px);
+  		 	filter: blur(5px);
+}
+
+a.no-a{
+	font-weight:normal;
+}
+a.no-a:hover{
+	color:normal;
+}
+
+
+/* - - - - - -  loader - - - - - -  */
+#loader{
+	padding:50px;
+}
+#loader h1{
+	font-size:18px;
+	text-align:center;
+	font-weight:bold;
+
+}
+.spinner {
+  margin: 100px 0 auto;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #265498;
+  opacity:0.75;
+  margin-right:2px;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 2s infinite ease-in-out;
+  animation: bouncedelay 2s infinite ease-in-out;
+  /* Prevent first frame from flickering when animation starts */
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+/*.spinner .bounce1 {-webkit-animation-delay: -2s;animation-delay: -2s;}
+.spinner .bounce2 {-webkit-animation-delay: -1.8s;animation-delay: -1.8s;}
+.spinner .bounce3 {-webkit-animation-delay: -1.6s;animation-delay: -1.6s;}
+.spinner .bounce4 {-webkit-animation-delay: -1.4s;animation-delay: -1.4s;}*/
+.spinner .bounce1 {-webkit-animation-delay: -1.2s;animation-delay: -1.2s;}
+.spinner .bounce2 {-webkit-animation-delay: -1s;animation-delay: -1s;}
+.spinner .bounce3 {-webkit-animation-delay: -0.8s;animation-delay: -0.8s;}
+.spinner .bounce4 {-webkit-animation-delay: -0.6s;animation-delay: -0.6s;}
+.spinner .bounce5 {-webkit-animation-delay: -0.4s;animation-delay: -0.4s;}
+.spinner .bounce6 {-webkit-animation-delay: -0.2s;animation-delay: -0.2s;}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 40% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+/* - - - - - -  loader - - - - - -  */
+
+
+/* - - - - - -  content buttons - - - - - -  */
+.contentButtons{
+	width:60%;
+	margin:10px 20%;
+	overflow:hidden;
+}
+.contentButton{
+	width:100%;
+	float:left;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	color:white;
+	font-weight:normal;
+	opacity:0.9;
+	cursor:pointer;
+	font-size:14px;
+	border-radius:2px;
+}
+.contentButton:hover{
+	opacity:1;
+}
+.contentButton.blue{
+	background:#007bb6;
+}
+.contentButton.invite{
+	background:#5DC12D;
+}
+.contentButtons .contentButton i{
+	margin-right:5px;
+}
+
+button.shareButton{
+	background:white;
+	color:transparent;
+	cursor:pointer;
+	margin-left:10px;
+	border-radius:2px;
+	border:1px solid transparent;
+	color:rgba(0,155,0,1);
+	padding:10px;
+}
+button.shareButton i{
+	margin-right:5px;
+}
+/* - - - - - -  content buttons - - - - - -  */

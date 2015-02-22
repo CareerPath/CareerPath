@@ -1,0 +1,76 @@
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+
+.upload-resume{
+
+  float:none;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin: auto;
+}
+
+.help-block{
+  color:white;
+}
+
+.file-preview-frame{
+  /*background-color: white;*/
+  float:none;
+  text-align: center;
+}
+
+.file-preview{
+  width:300px;
+  margin: auto;
+  border-width: 0px;
+  padding:0px;
+
+}
+
+.input-group{
+  width: 70%;
+  margin: auto;
+}
+
+.file-caption-name{
+  
+}
+
+#tags_3_tagsinput{
+  width: 50%;
+  height: 100%;
+  margin: auto;
+
+}
+.tag span, .tag a{
+    text-shadow : 0 0px 0px rgba(0,0,0,.5)
+}
+
+#submit{
+/*  height:5px;*/
+  height:40px;
+  margin-top: 10px;
+}
