@@ -3,6 +3,7 @@ var settings = require("../settings");
 var json2csv = require('json2csv');
 var fs = require('fs');
 var async = require('async');
+var Profile = require('../model/Profile');
 var Linkedin = require('node-linkedin')(settings.api_key, settings.secret, settings.redirect_uri);
 var linkedin;
 var fields = ['id', 'first-name', 'last-name', 'maiden-name',
@@ -52,7 +53,17 @@ var router = {
     	        return res.redirect('/');
     	    });
     	});
-    	app.get('/search', function (req, res) {
+        app.get('/collect-jobs', function (req, res) {
+            if (linkedin == undefined)
+                return res.redirect('/oauth/linkedin');
+            linkedin.jobs.id("29466592", function (err, data) {
+                if (err)
+                    res.send(err);
+                else
+                    res.send(data);
+            });
+        })
+    	app.get('/collect-people', function (req, res) {
     		if (linkedin == undefined)
     			return res.redirect('/oauth/linkedin');
     		linkedin.people.me(function (err, data) {
@@ -62,53 +73,63 @@ var router = {
     				var connections = [];
     				var count=0;
     				res.end("Started");
-    				var limit = req.query.limit||20;
+    				var limit = req.query.limit||-1;
     				async.mapSeries(data.connections.values, function (connection, cb) {
     					if (count++ > limit) return cb(null, {});
     					console.log(count);
-    					linkedin.people.id(connection.id,fields,function (err, data) {
-    						if (err) return console.log("ERROR:" + err);
-    						if (!data['publicProfileUrl']){
-    							console.log(data);
-    							return cb(null, {});
-    						}
-    						setTimeout(function() {
-    							var exec = require('child_process').exec,
-    						    child;
-    							child = exec('linkedin-scraper '+data['publicProfileUrl'],
-    							  function (error, stdout, stderr) {
-    							    console.log('stderr: ' + stderr);
-    							    if (stderr) return cb(null,{});
-    							    var data = JSON.parse(stdout);
-    							    if (data.title)
-    							    	data.title = data.title.replace(/,/g, '.');
-    							    if (data.summary)
-    							    	data.summary = data.summary.replace(/,/g, '.')
-    							    if (data.education) {
-    							    	var education = '';
-	    							    data.education.forEach(function (school) {
-	    							    	education += "|" + school.name.replace(/,/g, '.');
-	    							    })
-	    							    data.education = education;
-    							    }
-    							    if (data.skills) {
-    							    	var skills = '';
-    							    	data.skills.forEach(function (skill) {
-    							    		skills += "|" + skill.replace(/,/g, '.');
-    							    	})
-    							    	data.skills = skills;
-    							    }
-    							    
-    							    cb(null, data);
-    							    if (error !== null) {
-    							      console.log('exec error: ' + error);
-    							    }
-    							});
-    						}, 15000+Math.random()* 15000);
-    						
-    					});
+                        Profile.findOne({id:connection.id}, function (err, doc) {
+                            if (!doc) {
+                                linkedin.people.id(connection.id,fields,function (err, data) {
+                                    if (err) return console.log("ERROR:" + err);
+                                    if (!data['publicProfileUrl']){
+                                        return cb(null, {});
+                                    }
+                                    setTimeout(function() {
+                                        var exec = require('child_process').exec,
+                                        child;
+                                        child = exec('linkedin-scraper '+data['publicProfileUrl'],
+                                          function (error, stdout, stderr) {
+                                            console.log('stderr: ' + stderr);
+                                            if (stderr) return cb(null,{});
+                                            var data = JSON.parse(stdout);
+                                            data.id = connection.id;
+                                            if (data.title)
+                                                data.title = data.title.replace(/,/g, '.');
+                                            if (data.summary)
+                                                data.summary = data.summary.replace(/,/g, '.')
+                                            if (data.education) {
+                                                var education = '';
+                                                data.education.forEach(function (school) {
+                                                    education += "|" + school.name.replace(/,/g, '.');
+                                                })
+                                                data.education = education;
+                                            }
+                                            if (data.skills) {
+                                                var skills = '';
+                                                data.skills.forEach(function (skill) {
+                                                    skills += "|" + skill.replace(/,/g, '.');
+                                                })
+                                                data.skills = skills;
+                                            }
+                                            var newProfile = new Profile(data);
+                                            newProfile.save(function (err, doc) {
+                                                console.log(err, doc);
+                                                cb(err, data);
+                                            })
+                                            
+                                            if (error !== null) {
+                                              console.log('exec error: ' + error);
+                                            }
+                                        });
+                                    }, 10000+Math.random()* 15000);
+                                    
+                                });
+                            } else {
+                                cb(err, doc);
+                            }
+                        })
     				}, function (err, connections) {
-    					fs.writeFile('result.json', JSON.stringify(connections), function(err) {
+    					fs.writeFile('result.json', JSON.stringify(connections, null, 2), function(err) {
 						    if (err) throw err;
 						    console.log('file saved');
 						  });
