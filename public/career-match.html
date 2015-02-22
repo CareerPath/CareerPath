@@ -73,33 +73,64 @@
                           <img src="http://api.randomuser.me/portraits/men/49.jpg" alt="" class="center-block img-circle img-responsive">
                         </div><!--/col--> 
                         <div class="col-xs-12 col-sm-8">
-                          <h2>Mike Anamendolla</h2>
-                          <p><strong>About: </strong> Web Designer / UI. </p>
-                          <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
-                          <p><strong>Skills: </strong>
-                            <span class="label label-info tags">html5</span> 
-                            <span class="label label-info tags">css3</span>
-                            <span class="label label-info tags">jquery</span>
-                            <span class="label label-info tags">bootstrap3</span>
-                          </p>
+                          <div id="profile-name">
+                            <h2>Mike Anamendolla</h2>
+                          </div>
+                          <div id="profile-about" >
+                            <div class="field">
+                              <p class="title field-text ">Student at Carnegie Mellon University</p>
+                            </div>
+                          </div>
+                          <div id ="profile-location">
+                            <div class="field">
+                              <dl class="field-text">
+                   
+                              <dd>
+                                <span class="locality">Pittsburgh, Pennsylvania</span>
+                              </dd>
+                              </dl>
+                            </div>
+                          </div>
+                          <table class="profile-summary" summary="Overview for Xiaoran Zhan">
+                            <tbody>
+                              <tr id="overview-summary-current">
+                                <th scope="row">Current</th>
+                                <td>
+                                  <span class="field">
+                                    <ol class="field-text">
+                                    <li>
+                                    <span>CMU</span>
+                                    </li>
+                                    </ol>
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr id="overview-summary-past">
+                                <th scope="row">Previous</th>
+                                <td>
+                                  <span class="field">
+                                    <ol class="field-text">
+                                    <li>
+                                    <span>Wuhan University <span>
+                                    </li>
+                                    </ol>
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr id="overview-summary-education">
+                                <th scope="row">Education</th>
+                                <td>
+                                  <span class="field">
+                                    <ol class="field-text">
+                                    <li>Carnegie Mellon University</li>
+                                    </ol>
+                                  </span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
                         </div><!--/col-->          
-<!--                         <div class="clearfix"></div>
-                        <div class="col-xs-12 col-sm-4">
-                          <h2><strong> 20,7K </strong></h2>                    
-                          <p><small>Followers</small></p>
-                          <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                          <h2><strong>245</strong></h2>                    
-                          <p><small>Following</small></p>
-                          <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
-                          <h2><strong>43</strong></h2>                    
-                          <p><small>Snippets</small></p>
-                          <button type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Options </button>  
-                        </div> -->
-                        <!--/col-->
+
                         </div><!--/row-->
                               </div><!--/panel-body-->
                           </div><!--/panel-->
@@ -112,7 +143,7 @@
               </div>
 
               <!-- ngRepeat: career in top3 --><div class="company ng-scope" ng-repeat="career in top3">
-                <div style="padding:10px;overflow:hidden;">
+                <div class="job-general top" style="padding:10px;overflow:hidden;">
                   <div class="leftImage">
 <!--                     <div class="top" style="border-bottom:none;overflow:visible;">
                       <div class="contentTitle sharing ng-binding" style="color:#265498;padding:0;">74%</div>
@@ -163,7 +194,66 @@
                     </div>
                   </div>
                 </div>
-              </div><!-- end ngRepeat: career in top3 --><div class="company ng-scope" ng-repeat="career in top3">
+
+                <div class="job-detail " style="padding:10px;overflow:hidden;">
+                  <div class="skill-course top">
+                    <div class="skill">
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills already have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content<br>
+                              asdth
+                            </div>
+                          </div>
+                          <div class="panel panel-warning">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills partially have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div>
+<!--                           <div class="panel panel-info">...</div>
+                          <div class="panel panel-warning">...</div> -->
+                          <div class="panel panel-danger">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills need to achieve</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+
+                          </div>
+                    </div>
+                    <div class ="course">
+                      <div class="panel panel-info">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Couse Recommanded</h3>
+                        </div>
+<!--                         <div class="panel-body">
+
+
+                        </div> -->
+                        <ul id="course-detail" class="list-group">
+                            <li class="list-group-item">(10601) Intro to Machine Learning</li>
+                            <li class="list-group-item">(11642) Machine Learning for Signal Processing</li>
+                            <li class="list-group-item">(11755) Search Engine</li>
+                          </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="articles top">
+                    
+
+                  </div>
+                  <div class="action" ui-sref="careers.detail({industry: career.slug})" style="float:right;width:12.5%;">
+                    <i class="fa fa-eye"></i> Fold up
+                  </div>
+                </div>
+              </div><!-- end ngRepeat: career in top3 -->
+              <div class="company ng-scope" ng-repeat="career in top3">
                 <div style="padding:10px;overflow:hidden;">
                   <div class="leftImage">
 <!--                     <div class="top" style="border-bottom:none;overflow:visible;">
