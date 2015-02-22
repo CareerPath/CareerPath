@@ -4,7 +4,6 @@ var json2csv = require('json2csv');
 var fs = require('fs');
 var async = require('async');
 var Profile = require('../model/Profile');
-var Linkedin = require('node-linkedin')(settings.api_key, settings.secret, settings.redirect_uri);
 var linkedin;
 var fields = ['id', 'first-name', 'last-name', 'maiden-name',
             'formatted-name', 'headline', 'location',
@@ -18,8 +17,16 @@ var fields = ['id', 'first-name', 'last-name', 'maiden-name',
             'phone-numbers', 'bound-account-types', 'im-accounts', 'main-address',
             'twitter-accounts', 'primary-twitter-account', 'connections', 'group-memberships',
             'network', 'public-profile-url','api-standard-profile-request'];
+var Linkedin;
 var router = {
     setup :function(app){
+        var redirect_uri;
+        if (app.get('env') === 'production') {
+            redirect_uri = settings.product_redirect_uri;
+        } else {
+            redirect_uri = settings.local_redirect_uri;
+        }
+        Linkedin = require('node-linkedin')(settings.api_key, settings.secret, redirect_uri);
         app.post('/upload', function (req, res) {
             var fstream;
             req.pipe(req.busboy);
