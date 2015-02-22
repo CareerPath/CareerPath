@@ -9,4 +9,12 @@ router.get('/input-profile', function(req, res, next) {
   res.render('inputProfile', {me:req.session.me});
 });
 
+router.get('/career-match', function(req, res, next) {
+	if (!req.session.me) {
+		res.redirect('input-profile');
+	} else {
+		res.render('career-match', {me:req.session.me});
+	}
+});
+
 module.exports = router;

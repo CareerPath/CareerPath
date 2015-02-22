@@ -1,0 +1,639 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <title>Cover Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!--     <link href="css/all-krajee.css" rel="stylesheet"> -->
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
+	  <script src="js/jquery.tagsinput.min.js"></script>
+    <script src="js/jquery.tagsinput.js"></script>
+	  <script src="js/feature.js"></script>
+    <script src="js/career-match.js"></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
+<!-- 
+    <script src="js/input_profile.js"></script>
+ -->
+    <!-- Custom styles for this template -->
+    <link href="css/cover.css" rel="stylesheet">
+    <link href="css/fileinput.min.css" rel="stylesheet">
+    <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
+    <link href="css/input_profile.css" rel="stylesheet">
+    <link href="css/company.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" />
+
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/whole-result.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="site-wrapper">
+
+      <div class="site-wrapper-inner">
+
+        <div class="cover-container">
+
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Career Path</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li id= "home" class="active"><a href="index.html">Home</a></li>
+                  <!-- <li id= "feature"><a href="#">Features</a></li> -->
+                <!--   <li><a href="#">Contact</a></li> -->
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class = "report" class="wrap ng-scope">
+              <div class="individualReports ng-scope" ng-if="complete &amp;&amp; careers &amp;&amp; careers.length>0">
+                <div class="container">
+                  <div class="row">
+                      <div class="col-md-8 col-xs-10 desc">
+                      <div class="panel panel-default">
+                            <div class="panel-body">
+                        <div class="row">
+                        <div class="col-xs-12 col-sm-4 text-center pro-icon">
+                          <img src="<%= me.pictureUrl%>" alt="" class="center-block img-circle img-responsive">
+                        </div><!--/col--> 
+                        <div class="col-xs-12 col-sm-6">
+                          <div id="profile-name">
+                            <h2><%= me.formattedName %></h2>
+                          </div>
+                          <div id="profile-about" >
+                            <div class="field">
+                              <p class="title field-text "><%= me.headline %></p>
+                            </div>
+                          </div>
+                          <div id ="profile-location">
+                            <div class="field">
+                              <dl class="field-text">
+                   
+                              <dd>
+                                <span class="locality"><%= me.location.name%></span>
+                              </dd>
+                              </dl>
+                            </div>
+                          </div>
+                          <table class="profile-summary" summary="Overview for Xiaoran Zhan">
+                            <tbody>
+                              <tr id="overview-summary-current">
+                                <th scope="row">Current</th>
+                                <td>
+                                  <span class="field">
+                                    <ol class="field-text">
+                                    <li>
+                                    <span>CMU</span>
+                                    </li>
+                                    </ol>
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr id="overview-summary-past">
+                                <th scope="row">Previous</th>
+                                <td>
+                                  <span class="field">
+                                    <ol class="field-text">
+                                    <li>
+                                    <span>Wuhan University <span>
+                                    </li>
+                                    </ol>
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr id="overview-summary-education">
+                                <th scope="row">Education</th>
+                                <td>
+                                  <span class="field">
+                                    <ol class="field-text">
+                                    <li>Carnegie Mellon University</li>
+                                    </ol>
+                                  </span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div><!--/col-->          
+
+                        <div class="col-xs-12 col-sm-3 tag-cloud">
+
+                        </div>
+
+                        </div><!--/row-->
+                              </div><!--/panel-body-->
+                          </div><!--/panel-->
+                    </div><!--/col--> 
+                  </div><!--/row--> 
+                </div><!--/container--> 
+              <div ng-show="top3" class="contentTitle">
+                <!-- ngIf: type -->
+                <!-- ngIf: !type --><div ng-if="!type" class="ng-scope">Your Top Career Fits</div><!-- end ngIf: !type -->
+              </div>
+
+              <!-- ngRepeat: career in top3 -->
+              <div class="company ng-scope" ng-repeat="career in top3">
+                <div class="job-general top" style="padding:10px;overflow:hidden;">
+                  <div class="leftImage">
+<!--                     <div class="top" style="border-bottom:none;overflow:visible;">
+                      <div class="contentTitle sharing ng-binding" style="color:#265498;padding:0;">74%</div>
+                    </div> -->
+                    <div style="padding:0 10px">
+                      <div class="progress-bar-content">
+                        <div class="progress-bar-image">
+                         
+                          <div circle-gauge="" class="progress-bar">
+                          <div class="demo" id="per1" style="height:100px; width:100px" data-percent="83.3%"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span class="match tooltip-top ng-binding" data-tooltip="This is your fit for the Product Management model. It is based on your trait report results for the traits that are important to this model." style="margin-left:0;">Excellent Fit</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="companyInfo">
+                    <div class="top">
+                      <div class="leftInfo" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                        <div class="companyName">
+                          <a ui-sref="careers.detail({industry: career.slug})" style="color:#265498;font-weight:normal;" class="ng-binding" href="/results/careers/product-management">Product Management</a> 
+                        </div>
+                      </div>
+                      <div class="rightInfo">
+<!--                         <div class="action" ng-click="shareCareer(career)" style="float:right;width:32%;">
+                          <i class="fa fa-share-alt"></i> Share Results
+                        </div> -->
+                        <!-- ngIf: career.fit_score >= 50 -->
+<!--                         <a ng-if="career.fit_score >= 50" class="action no-a ng-scope" href="/results/companies?career=product-management" style="float:right;width:32%;">
+                          <i class="fa fa-briefcase"></i> View Jobs
+                        </a> -->
+                        <!-- end ngIf: career.fit_score >= 50 -->
+
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="leftInfo" style="width:70%;">
+                        <div class="positionTitle"></div>
+                        <div class="companyDescription">
+                          <div class="ng-binding">Product managers are often responsible for analyzing market conditions and defining features or functions of a product. The role of product management spans many activities from strategic to tactical and varies based on the organizational structure of the company. Product management can be a function separate on its own, or a part of marketing or engineering.</div>
+                        </div>
+                      </div>
+                      <div class="rightInfo" style="width:25%;"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="job-detail " style="overflow:hidden; display:none;">
+                <!--   skill and course   -->
+                  <div class="skill-course top">
+                    <!--   skill   -->
+                    <div class="skill">
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills already have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content<br>
+                              asdth
+                            </div>
+                          </div>
+                          <div class="panel panel-warning">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills partially have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div>
+
+                          <div class="panel panel-danger">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills need to achieve</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+
+                          </div>
+                    </div>
+                    <!--   course   -->
+                    <div class ="course">
+                      <div class="panel panel-info">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Course Recommanded</h3>
+                        </div>
+                     
+                        <ul id="course-detail" class="list-group">
+                            <li class="list-group-item">(10601) Intro to Machine Learning</li>
+                            <li class="list-group-item">(11642) Machine Learning for Signal Processing</li>
+                            <li class="list-group-item">(11755) Search Engine</li>
+                          </ul>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <!--   article   -->
+              
+                  <div class="article top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Article</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+                  <!--   opportunities   -->
+                  <div class="oppo top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Opportunities</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+
+
+                  </div>
+                  <div  class="action fold-up" style="float:right;width:12.5%; margin-right:20px; line-height: 24px; margin-bottom:10px; height:24px; margin-top:10px;">
+                    <i class="fa fa-eye"></i> Fold up
+                  </div>
+                </div>
+              <!-- end ngRepeat: career in top3 -->
+              <div class="company ng-scope" ng-repeat="career in top3">
+                <div class="job-general top" style="padding:10px;overflow:hidden;">
+                  <div class="leftImage">
+<!--                     <div class="top" style="border-bottom:none;overflow:visible;">
+                      <div class="contentTitle sharing ng-binding" style="color:#265498;padding:0;">66%</div>
+                    </div> -->
+                    <div style="padding:0 10px">
+                      <div class="progress-bar-content">
+                        <div class="progress-bar-image">
+                          
+                          <div circle-gauge="" class="progress-bar">
+                            <div class="demo" id="per2" style="height:100px; width:100px" data-percent="73.3%"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span class="match tooltip-top ng-binding" data-tooltip="This is your fit for the Product Development model. It is based on your trait report results for the traits that are important to this model." style="margin-left:0;">Excellent Fit</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="companyInfo">
+                    <div class="top">
+                      <div class="leftInfo" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                        <div class="companyName">
+                          <a ui-sref="careers.detail({industry: career.slug})" style="color:#265498;font-weight:normal;" class="ng-binding" href="/results/careers/product-development">Product Development</a> 
+                        </div>
+                      </div>
+                      <div class="rightInfo">
+<!--                         <div class="action" ng-click="shareCareer(career)" style="float:right;width:32%;">
+                          <i class="fa fa-share-alt"></i> Share Results
+                        </div> -->
+                        <!-- ngIf: career.fit_score >= 50 -->
+                        <!-- <a ng-if="career.fit_score >= 50" class="action no-a ng-scope" href="/results/companies?career=product-development" style="float:right;width:32%;">
+                          <i class="fa fa-briefcase"></i> View Jobs
+                        </a> -->
+                        <!-- end ngIf: career.fit_score >= 50 -->
+
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="leftInfo" style="width:70%;">
+                        <div class="positionTitle"></div>
+                        <div class="companyDescription">
+                          <div class="ng-binding">Product development involves innovating new and/or improved features to an existing product or creating an entirely new product that better satisfies consumer needs. Product development works to increase the effectiveness of the product by refining it to better meet market trends.</div>
+                        </div>
+                      </div>
+                      <div class="rightInfo" style="width:25%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-detail " style="overflow:hidden; display:none;">
+                <!--   skill and course   -->
+                  <div class="skill-course top">
+                    <!--   skill   -->
+                    <div class="skill">
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills already have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content<br>
+                              asdth
+                            </div>
+                          </div>
+                          <div class="panel panel-warning">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills partially have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div>
+
+                          <div class="panel panel-danger">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills need to achieve</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+
+                          </div>
+                    </div>
+                    <!--   course   -->
+                    <div class ="course">
+                      <div class="panel panel-info">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Course Recommanded</h3>
+                        </div>
+                     
+                        <ul id="course-detail" class="list-group">
+                            <li class="list-group-item">(10601) Intro to Machine Learning</li>
+                            <li class="list-group-item">(11642) Machine Learning for Signal Processing</li>
+                            <li class="list-group-item">(11755) Search Engine</li>
+                          </ul>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <!--   article   -->
+              
+                  <div class="article top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Article</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+                  <!--   opportunities   -->
+                  <div class="oppo top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Opportunities</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+
+
+                  </div>
+                  <div  class="action fold-up" style="float:right;width:12.5%; margin-right:20px; line-height: 24px; margin-bottom:10px; height:24px; margin-top:10px;">
+                    <i class="fa fa-eye"></i> Fold up
+                  </div>
+              </div><!-- end ngRepeat: career in top3 -->
+
+
+
+              <div class="company ng-scope" ng-repeat="career in top3">
+                <div class="job-general top" style="padding:10px;overflow:hidden;">
+                  <div class="leftImage">
+<!--                     <div class="top" style="border-bottom:none;overflow:visible;">
+                      <div class="contentTitle sharing ng-binding" style="color:#265498;padding:0;">61%</div>
+                    </div> -->
+                    <div style="padding:0 10px">
+                      <div class="progress-bar-content">
+                        <div class="progress-bar-image">
+                          <div circle-gauge="" class="progress-bar">
+                          <div class="demo" id="per3" style="height:100px; width:100px" data-percent="70.3%"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <span class="match tooltip-top ng-binding" data-tooltip="This is your fit for the Marketing model. It is based on your trait report results for the traits that are important to this model." style="margin-left:0;">Excellent Fit</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="companyInfo">
+                    <div class="top">
+                      <div class="leftInfo" style="overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                        <div class="companyName">
+                          <a ui-sref="careers.detail({industry: career.slug})" style="color:#265498;font-weight:normal;" class="ng-binding" href="/results/careers/marketing">Marketing</a> 
+                        </div>
+                      </div>
+                      <div class="rightInfo">
+<!--                         <div class="action" ng-click="shareCareer(career)" style="float:right;width:32%;">
+                          <i class="fa fa-share-alt"></i> Share Results
+                        </div> -->
+                        <!-- ngIf: career.fit_score >= 50 -->
+<!--                         <a ng-if="career.fit_score >= 50" class="action no-a ng-scope" href="/results/companies?career=marketing" style="float:right;width:32%;">
+                          <i class="fa fa-briefcase"></i> View Jobs
+                        </a> -->
+                        <!-- end ngIf: career.fit_score >= 50 -->
+
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="leftInfo" style="width:70%;">
+                        <div class="positionTitle"></div>
+                        <div class="companyDescription">
+                          <div class="ng-binding">Marketing is the process of identifying consumer needs and determining a strategy to communicate the value of a product in order to sell it profitably. This requires a psychological understanding of consumer values, intelligent branding and design, and market analysis in order to pinpoint target consumers.</div>
+                        </div>
+                      </div>
+                      <div class="rightInfo" style="width:25%;"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="job-detail" style="overflow:hidden; display:none;">
+                <!--   skill and course   -->
+                  <div class="skill-course top">
+                    <!--   skill   -->
+                    <div class="skill">
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills already have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content<br>
+                              asdth
+                            </div>
+                          </div>
+                          <div class="panel panel-warning">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills partially have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div>
+
+                          <div class="panel panel-danger">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills need to achieve</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+
+                          </div>
+                    </div>
+                    <!--   course   -->
+                    <div class ="course">
+                      <div class="panel panel-info">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Course Recommanded</h3>
+                        </div>
+                     
+                        <ul id="course-detail" class="list-group">
+                            <li class="list-group-item">(10601) Intro to Machine Learning</li>
+                            <li class="list-group-item">(11642) Machine Learning for Signal Processing</li>
+                            <li class="list-group-item">(11755) Search Engine</li>
+                          </ul>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <!--   article   -->
+              
+                  <div class="article top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Article</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+                  <!--   opportunities   -->
+                  <div class="oppo top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Opportunities</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+
+
+                  </div>
+                  <div  class="action fold-up" style="float:right;width:12.5%; margin-right:20px; line-height: 24px; margin-bottom:10px; height:24px; margin-top:10px;">
+                    <i class="fa fa-eye"></i> Fold up
+                  </div>
+              </div><!-- end ngRepeat: career in top3 -->
+
+              </div>
+
+            </div>
+        </div>
+
+      </div>
+
+    </div>
+
+ 
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/fileinput.js" type="text/javascript"></script>
+    <script src="js/jquery.diagram.js"></script>
+    <script type='text/javascript' src='http://d3js.org/d3.v3.min.js'></script>
+    <script type='text/javascript' src="https://jardindesconnaissances.googlecode.com/svn-history/r82/trunk/public/js/d3.layout.cloud.js"></script>
+    <script>
+    $('#per1').diagram({
+      size: "100", // graph size
+      borderWidth: "10", // border width
+      bgFill: "#95a5a6", // background color
+      frFill: "#3aeabb", // foreground color
+      textSize: 12, // text color
+      font: "serif", // font
+      textColor: '#2a2a2a' // text color
+      });
+        $('#per2').diagram({
+      size: "100", // graph size
+      borderWidth: "10", // border width
+      bgFill: "#95a5a6", // background color
+      frFill: "#3aeabb", // foreground color
+      textSize: 12, // text color
+      font: "serif", // font
+      textColor: '#2a2a2a' // text color
+      });
+            $('#per3').diagram({
+      size: "100", // graph size
+      borderWidth: "10", // border width
+      bgFill: "#95a5a6", // background color
+      frFill: "#3aeabb", // foreground color
+      textSize: 12, // text color
+      font: "serif", // font
+      textColor: '#2a2a2a' // text color
+      });
+  var fill = d3.scale.category20();
+  var skills = [<%me.skills.values.forEach(function(val) {%>
+    "<%= val.skill.name%>",
+  <%})%>];
+  d3.layout.cloud().size([300, 300])
+      .words(skills.map(function(d) {
+        return {text: d, size: 10 + Math.random() * 50};
+      }))
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .font("Impact")
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+
+  function draw(words) {
+    d3.select(".tag-cloud").append("svg")
+        .attr("width", 300)
+        .attr("height", 300)
+      .append("g")
+        .attr("transform", "translate(150,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .style("font-family", "Impact")
+        .style("fill", function(d, i) { return fill(i); })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+    </script>
+</body></html>

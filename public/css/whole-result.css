@@ -4,15 +4,154 @@
 }
 
 .desc{
-	width:auto;
+	width:100%;
 }
 
 .pro-icon{
 	max-height: 20%;
 	max-width: 20%;
+
+}
+
+.pro-icon img{
+
+	width:200px;
 }
 
 body{
 	  color: #333;
   text-align: left;
+}
+
+
+.field .field-text{
+	display: inline-block;
+	border: 1px solid transparent;
+	-webkit-transition: background-color 0.2s,border 0.2s;
+	-moz-transition: background-color 0.2s,border 0.2s;
+	-o-transition: background-color 0.2s,border 0.2s;
+	transition: background-color 0.2s,border 0.2s;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 5px;
+	margin-left: -5px;
+	margin-right: -5px;
+	max-width: 576px;
+	list-style: none;
+	font-size: 13px;
+	line-height: 17px;
+	color: #333;
+	text-shadow: 0 1px 3px white;
+
+}
+
+.row{
+	vertical-align: top;
+}
+
+.locality{
+	font-size: 13px;
+line-height: 17px;
+color: #66696a;
+font-weight: normal;
+}
+
+.profile-summary {
+	text-shadow: 0 1px 3px white;
+}
+
+.field .title{
+	font-size: 16px;
+line-height: 20px;
+color: #333;
+font-weight: normal;
+padding-top: 1px;
+padding-bottom: 1px;
+}
+
+.profile-summary th{
+	
+	font-size: 11px;
+	color: #999;
+	vertical-align: top;
+	padding: 2px 20px 0 0;
+	white-space: nowrap;
+
+}
+
+.col-xs-12.col-sm-6{
+	margin-top:-20px;
+}
+
+.col-xs-12.col-sm-3{
+	float:left;
+	height:100%;
+	
+}
+
+.col-xs-12.col-sm-3 span{
+	float:right;
+	height:100%;
+	margin: 5px;
+
+}
+.job-detail{
+	display: none;
+	padding : 10px 10px 0 10px;
+}
+
+.skill-course{
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+
+.skill{
+	width: 48%;
+	margin-left:10px;
+	float: left;
+
+}
+.course{
+	width: 48%;
+	margin-right:10px;
+
+	float:right;
+}
+
+.panel-body{
+	font-size: 12px;
+	line-height: 12px;
+	padding:5px;
+	padding-left:15px;
+}
+.list-group{
+	font-size: 12px;
+	line-height: 12px;
+}
+
+.article{
+	float: left;
+		width: 98%;
+	height: 100%;
+/*	margin-left: 10px;
+	margin-right:10px;*/
+	margin : 10px 10px;
+}
+
+.oppo{
+	float: left;
+	width: 98%;
+	height: 100%;
+/*	margin-left: 10px;
+	margin-right:10px;*/
+	margin : 10px 10px 0 10px;
+}
+
+.fold-up{
+	float:right;
+	width:12.5%; 
+	margin: 10px 20px 10px 10px; 
+	line-height: 24px; 
+	height:24px;
 }
