@@ -9,6 +9,10 @@ var session = require('express-session')
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var router = require('./routes/router');
+var fs = require('fs');
+var busboy = require('connect-busboy');
+//...
+
 var app = express();
 
 // view engine setup
@@ -21,6 +25,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(busboy()); 
 app.use(session({ secret: '6G3rZQwMHwfsHC0OvHnY', cookie: { maxAge: 60000 }}))
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -3,7 +3,7 @@ var settings = require("../settings");
 var json2csv = require('json2csv');
 var fs = require('fs');
 var async = require('async');
-var Linkedin = require('node-linkedin')(settings.api_key, settings.secret, settings.redirect_uri);
+var Profile = require('../model/Profile');
 var linkedin;
 var fields = ['id', 'first-name', 'last-name', 'maiden-name',
             'formatted-name', 'headline', 'location',
@@ -17,8 +17,28 @@ var fields = ['id', 'first-name', 'last-name', 'maiden-name',
             'phone-numbers', 'bound-account-types', 'im-accounts', 'main-address',
             'twitter-accounts', 'primary-twitter-account', 'connections', 'group-memberships',
             'network', 'public-profile-url','api-standard-profile-request'];
+var Linkedin;
 var router = {
     setup :function(app){
+        var redirect_uri;
+        if (app.get('env') === 'production') {
+            redirect_uri = settings.product_redirect_uri;
+        } else {
+            redirect_uri = settings.local_redirect_uri;
+        }
+        Linkedin = require('node-linkedin')(settings.api_key, settings.secret, redirect_uri);
+        app.post('/upload', function (req, res) {
+            var fstream;
+            req.pipe(req.busboy);
+            req.busboy.on('file', function (fieldname, file, filename) {
+                console.log("Uploading: " + filename); 
+                fstream = fs.createWriteStream('/tmp/' + filename);
+                file.pipe(fstream);
+                fstream.on('close', function () {
+                    res.send({msg:"success"});
+                });
+            });
+        });
     	app.get('/oauth/linkedin', function(req, res) {
     	    // This will ask for permisssions etc and redirect to callback url. 
     	    // var params = {
@@ -36,11 +56,28 @@ var router = {
     	            return console.err(err);
     	        results = JSON.parse(results);
     	        linkedin = Linkedin.init(results.access_token);
-    	        
-    	        return res.redirect('/search');
+    	        linkedin.people.me(function (err, data) {
+                    if (err)
+                        res.send({err: err});
+                    else {
+                        req.session.me = data;
+                        console.log(data);
+                        return res.redirect('/input-profile');
+                    }
+                })
     	    });
     	});
-    	app.get('/search', function (req, res) {
+        app.get('/collect-jobs', function (req, res) {
+            if (linkedin == undefined)
+                return res.redirect('/oauth/linkedin');
+            linkedin.jobs.id("29466592", function (err, data) {
+                if (err)
+                    res.send(err);
+                else
+                    res.send(data);
+            });
+        })
+    	app.get('/collect-people', function (req, res) {
     		if (linkedin == undefined)
     			return res.redirect('/oauth/linkedin');
     		linkedin.people.me(function (err, data) {
@@ -48,26 +85,68 @@ var router = {
     				res.send({err:err});
     			} else {
     				var connections = [];
-    				var count = 0;
-    				async.map(data.connections.values, function (connection, cb) {
-    					if (count > 2) return cb(null, {});
-    					count++;
-    					linkedin.people.id(connection.id,fields,function (err, data) {
-    						var positions = [];
-    						if (data.positions && data.positions._total > 0) {
-    							data.positions = data.positions.values[0].title;
-    						}
-    						cb(err, data);
-    					});
+    				var count=0;
+    				res.end("Started");
+    				var limit = req.query.limit||-1;
+    				async.mapSeries(data.connections.values, function (connection, cb) {
+    					if (count++ > limit) return cb(null, {});
+    					console.log(count);
+                        Profile.findOne({id:connection.id}, function (err, doc) {
+                            if (!doc) {
+                                linkedin.people.id(connection.id,fields,function (err, data) {
+                                    if (err) return console.log("ERROR:" + err);
+                                    if (!data['publicProfileUrl']){
+                                        return cb(null, {});
+                                    }
+                                    setTimeout(function() {
+                                        var exec = require('child_process').exec,
+                                        child;
+                                        child = exec('linkedin-scraper '+data['publicProfileUrl'],
+                                          function (error, stdout, stderr) {
+                                            console.log('stderr: ' + stderr);
+                                            if (stderr) return cb(null,{});
+                                            var data = JSON.parse(stdout);
+                                            data.id = connection.id;
+                                            if (data.title)
+                                                data.title = data.title.replace(/,/g, '.');
+                                            if (data.summary)
+                                                data.summary = data.summary.replace(/,/g, '.')
+                                            if (data.education) {
+                                                var education = '';
+                                                data.education.forEach(function (school) {
+                                                    education += "|" + school.name.replace(/,/g, '.');
+                                                })
+                                                data.education = education;
+                                            }
+                                            if (data.skills) {
+                                                var skills = '';
+                                                data.skills.forEach(function (skill) {
+                                                    skills += "|" + skill.replace(/,/g, '.');
+                                                })
+                                                data.skills = skills;
+                                            }
+                                            var newProfile = new Profile(data);
+                                            newProfile.save(function (err, doc) {
+                                                console.log(err, doc);
+                                                cb(err, data);
+                                            })
+                                            
+                                            if (error !== null) {
+                                              console.log('exec error: ' + error);
+                                            }
+                                        });
+                                    }, 10000+Math.random()* 15000);
+                                    
+                                });
+                            } else {
+                                cb(err, doc);
+                            }
+                        })
     				}, function (err, connections) {
-    					json2csv({data: connections, fields: ['id','headline','positions','skills','specialties','interests','educations']}, function(err, csv) {
-						  if (err) console.log(err);
-						  res.send({csv:csv});
-						  fs.writeFile('result.csv', csv, function(err) {
+    					fs.writeFile('result.json', JSON.stringify(connections, null, 2), function(err) {
 						    if (err) throw err;
 						    console.log('file saved');
 						  });
-						});
     				});
     				
     			}
