@@ -49,8 +49,15 @@ var router = {
     	            return console.err(err);
     	        results = JSON.parse(results);
     	        linkedin = Linkedin.init(results.access_token);
-    	        
-    	        return res.redirect('/');
+    	        linkedin.people.me(function (err, data) {
+                    if (err)
+                        res.send({err: err});
+                    else {
+                        req.session.me = data;
+                        console.log(data);
+                        return res.redirect('/input-profile');
+                    }
+                })
     	    });
     	});
         app.get('/collect-jobs', function (req, res) {
