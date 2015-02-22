@@ -1,0 +1,18 @@
+.container{
+	width:auto;
+
+}
+
+.desc{
+	width:auto;
+}
+
+.pro-icon{
+	max-height: 20%;
+	max-width: 20%;
+}
+
+body{
+	  color: #333;
+  text-align: left;
+}

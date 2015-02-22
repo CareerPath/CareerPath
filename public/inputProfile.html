@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <title>Cover Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
@@ -15,8 +15,10 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="http://getbootstrap.com/assets/js/ie-emulation-modes-warning.js"></script>
-	
+	  <script src="js/jquery.tagsinput.min.js"></script>
+    <script src="js/jquery.tagsinput.js"></script>
 	  <script src="js/feature.js"></script>
+    <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
 <!-- 
     <script src="js/input_profile.js"></script>
  -->
@@ -24,7 +26,10 @@
     <link href="css/cover.css" rel="stylesheet">
     <link href="css/fileinput.min.css" rel="stylesheet">
     <link href="css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-<link href="css/input_profile.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/jquery.tagsinput.css" />
+    <link href="css/input_profile.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/start/jquery-ui.css" />
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -67,7 +72,13 @@
                  <div class="form-group">
                     <input id="file-0" class="file" type="file">
                 </div>
-              <h4>Add Interests</h4>
+              <h4>Interests</h4>
+                <p>
+              <form>
+                <input id='tags_3' type='text' class='tags'></p>
+              </form>
+              <a href="career-match.html">
+              <button  id='submit' class="btn btn-primary">Let's See your career!</button></a>
             </div>
           </div>
 
@@ -84,7 +95,7 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
     <script src="js/bootstrap.min.js"></script>
     <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -106,6 +117,32 @@
         // }
 
         });
+            function onAddTag(tag) {
+              alert("Added a tag: " + tag);
+            }
+            function onRemoveTag(tag) {
+              alert("Removed a tag: " + tag);
+            }
+            
+            function onChangeTag(input,tag) {
+              alert("Changed a tag: " + tag);
+            }
+            
+            $(function() {
+              $('#tags_3').tagsInput({
+                width: 'auto',
+
+                //autocomplete_url:'test/fake_plaintext_endpoint.html' //jquery.autocomplete (not jquery ui)
+                // autocomplete_url:'test/fake_plaintext_endpoint.html' // jquery ui autocomplete requires a json endpoint
+              });
+              
+
+        // Uncomment this line to see the callback functions in action
+        //      $('input.tags').tagsInput({onAddTag:onAddTag,onRemoveTag:onRemoveTag,onChange: onChangeTag});   
+
+        // Uncomment this line to see an input with no interface for adding new tags.
+        //      $('input.tags').tagsInput({interactive:false});
+            });
     </script>
 
 
