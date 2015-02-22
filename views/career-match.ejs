@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <title>Cover Template for Bootstrap</title>
 
@@ -18,6 +18,7 @@
 	  <script src="js/jquery.tagsinput.min.js"></script>
     <script src="js/jquery.tagsinput.js"></script>
 	  <script src="js/feature.js"></script>
+    <script src="js/career-match.js"></script>
     <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'></script>
 <!-- 
     <script src="js/input_profile.js"></script>
@@ -72,7 +73,7 @@
                         <div class="col-xs-12 col-sm-4 text-center pro-icon">
                           <img src="http://api.randomuser.me/portraits/men/49.jpg" alt="" class="center-block img-circle img-responsive">
                         </div><!--/col--> 
-                        <div class="col-xs-12 col-sm-8">
+                        <div class="col-xs-12 col-sm-6">
                           <div id="profile-name">
                             <h2>Mike Anamendolla</h2>
                           </div>
@@ -131,6 +132,14 @@
                           </table>
                         </div><!--/col-->          
 
+                        <div class="col-xs-12 col-sm-2">
+                          <p>
+                          <span href="#" class="btn btn-primary" role="button">Button</span> 
+                          <span href="#" class="btn btn-primary" role="button">Button</span>
+                          </p>
+
+                        </div>
+
                         </div><!--/row-->
                               </div><!--/panel-body-->
                           </div><!--/panel-->
@@ -142,7 +151,8 @@
                 <!-- ngIf: !type --><div ng-if="!type" class="ng-scope">Your Top Career Fits</div><!-- end ngIf: !type -->
               </div>
 
-              <!-- ngRepeat: career in top3 --><div class="company ng-scope" ng-repeat="career in top3">
+              <!-- ngRepeat: career in top3 -->
+              <div class="company ng-scope" ng-repeat="career in top3">
                 <div class="job-general top" style="padding:10px;overflow:hidden;">
                   <div class="leftImage">
 <!--                     <div class="top" style="border-bottom:none;overflow:visible;">
@@ -178,9 +188,7 @@
                           <i class="fa fa-briefcase"></i> View Jobs
                         </a> -->
                         <!-- end ngIf: career.fit_score >= 50 -->
-                        <div class="action" ui-sref="careers.detail({industry: career.slug})" style="float:right;width:32%;">
-                          <i class="fa fa-eye"></i> View Details
-                        </div>
+
                       </div>
                     </div>
                     <div class="bottom">
@@ -195,8 +203,10 @@
                   </div>
                 </div>
 
-                <div class="job-detail " style="padding:10px;overflow:hidden;">
+                <div class="job-detail " style="overflow:hidden; display:none;">
+                <!--   skill and course   -->
                   <div class="skill-course top">
+                    <!--   skill   -->
                     <div class="skill">
                           <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -215,8 +225,7 @@
                               Panel content
                             </div>
                           </div>
-<!--                           <div class="panel panel-info">...</div>
-                          <div class="panel panel-warning">...</div> -->
+
                           <div class="panel panel-danger">
                             <div class="panel-heading">
                               <h5 class="panel-title">Skills need to achieve</h5>
@@ -227,15 +236,13 @@
 
                           </div>
                     </div>
+                    <!--   course   -->
                     <div class ="course">
                       <div class="panel panel-info">
                         <div class="panel-heading">
-                          <h3 class="panel-title">Couse Recommanded</h3>
+                          <h3 class="panel-title">Course Recommanded</h3>
                         </div>
-<!--                         <div class="panel-body">
-
-
-                        </div> -->
+                     
                         <ul id="course-detail" class="list-group">
                             <li class="list-group-item">(10601) Intro to Machine Learning</li>
                             <li class="list-group-item">(11642) Machine Learning for Signal Processing</li>
@@ -243,18 +250,45 @@
                           </ul>
                       </div>
                     </div>
-                  </div>
-                  <div class="articles top">
                     
+                  </div>
+                  <!--   article   -->
+              
+                  <div class="article top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Article</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
 
                   </div>
-                  <div class="action" ui-sref="careers.detail({industry: career.slug})" style="float:right;width:12.5%;">
+                  <!--   opportunities   -->
+                  <div class="oppo top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Opportunities</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+
+
+                  </div>
+                  <div  class="action fold-up" style="float:right;width:12.5%; margin-right:20px; line-height: 24px; margin-bottom:10px; height:24px; margin-top:10px;">
                     <i class="fa fa-eye"></i> Fold up
                   </div>
                 </div>
-              </div><!-- end ngRepeat: career in top3 -->
+              <!-- end ngRepeat: career in top3 -->
               <div class="company ng-scope" ng-repeat="career in top3">
-                <div style="padding:10px;overflow:hidden;">
+                <div class="job-general top" style="padding:10px;overflow:hidden;">
                   <div class="leftImage">
 <!--                     <div class="top" style="border-bottom:none;overflow:visible;">
                       <div class="contentTitle sharing ng-binding" style="color:#265498;padding:0;">66%</div>
@@ -289,9 +323,7 @@
                           <i class="fa fa-briefcase"></i> View Jobs
                         </a> -->
                         <!-- end ngIf: career.fit_score >= 50 -->
-                        <div class="action" ui-sref="careers.detail({industry: career.slug})" style="float:right;width:32%;">
-                          <i class="fa fa-eye"></i> View Details
-                        </div>
+
                       </div>
                     </div>
                     <div class="bottom">
@@ -305,8 +337,94 @@
                     </div>
                   </div>
                 </div>
-              </div><!-- end ngRepeat: career in top3 --><div class="company ng-scope" ng-repeat="career in top3">
-                <div style="padding:10px;overflow:hidden;">
+                <div class="job-detail " style="overflow:hidden; display:none;">
+                <!--   skill and course   -->
+                  <div class="skill-course top">
+                    <!--   skill   -->
+                    <div class="skill">
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills already have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content<br>
+                              asdth
+                            </div>
+                          </div>
+                          <div class="panel panel-warning">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills partially have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div>
+
+                          <div class="panel panel-danger">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills need to achieve</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+
+                          </div>
+                    </div>
+                    <!--   course   -->
+                    <div class ="course">
+                      <div class="panel panel-info">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Course Recommanded</h3>
+                        </div>
+                     
+                        <ul id="course-detail" class="list-group">
+                            <li class="list-group-item">(10601) Intro to Machine Learning</li>
+                            <li class="list-group-item">(11642) Machine Learning for Signal Processing</li>
+                            <li class="list-group-item">(11755) Search Engine</li>
+                          </ul>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <!--   article   -->
+              
+                  <div class="article top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Article</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+                  <!--   opportunities   -->
+                  <div class="oppo top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Opportunities</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+
+
+                  </div>
+                  <div  class="action fold-up" style="float:right;width:12.5%; margin-right:20px; line-height: 24px; margin-bottom:10px; height:24px; margin-top:10px;">
+                    <i class="fa fa-eye"></i> Fold up
+                  </div>
+              </div><!-- end ngRepeat: career in top3 -->
+
+
+
+              <div class="company ng-scope" ng-repeat="career in top3">
+                <div class="job-general top" style="padding:10px;overflow:hidden;">
                   <div class="leftImage">
 <!--                     <div class="top" style="border-bottom:none;overflow:visible;">
                       <div class="contentTitle sharing ng-binding" style="color:#265498;padding:0;">61%</div>
@@ -340,9 +458,7 @@
                           <i class="fa fa-briefcase"></i> View Jobs
                         </a> -->
                         <!-- end ngIf: career.fit_score >= 50 -->
-                        <div class="action" ui-sref="careers.detail({industry: career.slug})" style="float:right;width:32%;">
-                          <i class="fa fa-eye"></i> View Details
-                        </div>
+
                       </div>
                     </div>
                     <div class="bottom">
@@ -356,6 +472,88 @@
                     </div>
                   </div>
                 </div>
+                <div class="job-detail" style="overflow:hidden; display:none;">
+                <!--   skill and course   -->
+                  <div class="skill-course top">
+                    <!--   skill   -->
+                    <div class="skill">
+                          <div class="panel panel-primary">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills already have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content<br>
+                              asdth
+                            </div>
+                          </div>
+                          <div class="panel panel-warning">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills partially have</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+                          </div>
+
+                          <div class="panel panel-danger">
+                            <div class="panel-heading">
+                              <h5 class="panel-title">Skills need to achieve</h5>
+                            </div>
+                            <div class="panel-body">
+                              Panel content
+                            </div>
+
+                          </div>
+                    </div>
+                    <!--   course   -->
+                    <div class ="course">
+                      <div class="panel panel-info">
+                        <div class="panel-heading">
+                          <h3 class="panel-title">Course Recommanded</h3>
+                        </div>
+                     
+                        <ul id="course-detail" class="list-group">
+                            <li class="list-group-item">(10601) Intro to Machine Learning</li>
+                            <li class="list-group-item">(11642) Machine Learning for Signal Processing</li>
+                            <li class="list-group-item">(11755) Search Engine</li>
+                          </ul>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <!--   article   -->
+              
+                  <div class="article top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Article</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+                  <!--   opportunities   -->
+                  <div class="oppo top">
+                    <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">Opportunities</div>
+                    <ul class="list-group">
+                      <li class="list-group-item">Cras justo odio</li>
+                      <li class="list-group-item">Dapibus ac facilisis in</li>
+
+                    </ul>
+                    </div>
+
+                  </div>
+
+
+                  </div>
+                  <div  class="action fold-up" style="float:right;width:12.5%; margin-right:20px; line-height: 24px; margin-bottom:10px; height:24px; margin-top:10px;">
+                    <i class="fa fa-eye"></i> Fold up
+                  </div>
               </div><!-- end ngRepeat: career in top3 -->
 
               </div>
