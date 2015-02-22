@@ -86,7 +86,7 @@ padding-bottom: 1px;
 .col-xs-12.col-sm-3{
 	float:left;
 	height:100%;
-	
+
 }
 
 .col-xs-12.col-sm-3 span{
@@ -120,14 +120,16 @@ padding-bottom: 1px;
 }
 
 .panel-body{
-	font-size: 12px;
-	line-height: 12px;
+	font-size: 14px;
+	line-height: 20px;
 	padding:5px;
 	padding-left:15px;
+	font-weight: 400;
 }
 .list-group{
-	font-size: 12px;
-	line-height: 12px;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 400;
 }
 
 .article{
