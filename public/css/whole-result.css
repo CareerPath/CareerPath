@@ -10,6 +10,12 @@
 .pro-icon{
 	max-height: 20%;
 	max-width: 20%;
+
+}
+
+.pro-icon img{
+
+	width:200px;
 }
 
 body{
@@ -77,15 +83,17 @@ padding-bottom: 1px;
 	margin-top:-20px;
 }
 
-.col-xs-12.col-sm-2{
+.col-xs-12.col-sm-3{
 	float:left;
 	height:100%;
+	
 }
 
-.col-xs-12.col-sm-2 span{
+.col-xs-12.col-sm-3 span{
 	float:right;
 	height:100%;
 	margin: 5px;
+
 }
 .job-detail{
 	display: none;
